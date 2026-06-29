@@ -10,89 +10,142 @@ This document defines the logical database structure of FinMang OS.
 
 ## 1. Mission
 
-Stores the user's financial mission.
+Stores the user's financial missions and goals.
 
 Fields
 
+- id
 - Mission Name
 - Description
+- Category
+- Priority
+- Status
 - Start Date
 - Target Date
-- Status
-- Priority
+- Created At
+- Updated At
 
 ---
 
-## 2. Daily Log
+## 2. Accounts
 
-Records daily financial activities.
+Stores all financial accounts.
 
 Fields
 
-- Date
-- Mission
-- Transportation
-- Breakfast
-- Lunch
-- Dinner
-- Drinks
-- Other Expense
-- Income
-- Notes
+- id
+- Account Name
+- Account Type (Cash, Bank, Wallet, E-Wallet)
+- Currency
+- Balance
+- Status
+- Created At
+- Updated At
 
 ---
 
-## 3. Budget
+## 3. Transactions
+
+Stores every financial transaction.
+
+Fields
+
+- id
+- Date
+- Account ID
+- Mission ID
+- Category
+- Type (Income / Expense)
+- Amount
+- Description
+- Created At
+- Updated At
+
+---
+
+## 4. Budget
 
 Stores monthly budgets.
 
 Fields
 
+- id
+- Month
 - Category
 - Planned Amount
 - Actual Amount
-- Remaining
+- Remaining Amount
+- Created At
+- Updated At
 
 ---
 
-## 4. Assets
+## 5. Assets
 
-Tracks all owned assets.
+Tracks owned assets.
 
 Fields
 
-- Name
+- id
+- Asset Name
 - Category
-- Value
-- Updated Date
+- Current Value
+- Purchase Value
+- Purchase Date
+- Account ID
+- Created At
+- Updated At
 
 ---
 
-## 5. Debts
+## 6. Debts
 
 Tracks liabilities.
 
 Fields
 
-- Name
+- id
+- Debt Name
 - Amount
 - Due Date
 - Status
+- Created At
+- Updated At
 
 ---
 
-## 6. Automation
+## 7. Automation
 
 Stores automation rules.
 
 Fields
 
-- Name
+- id
+- Rule Name
 - Trigger
 - Action
 - Status
+- Created At
+- Updated At
 
 ---
 
-Version: 1.0
+# Relationships
+
+Mission
+→ Transactions
+
+Accounts
+→ Transactions
+
+Budget
+→ Transactions
+
+Accounts
+→ Assets
+
+---
+
+Version: 2.0
+
 Status: Official
