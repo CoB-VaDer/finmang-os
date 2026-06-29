@@ -2,45 +2,61 @@
 
 ## Purpose
 
-This document defines how financial assets are organized and tracked.
+This document defines how financial assets are organized, tracked, valued, and managed within FinMang OS.
 
 ---
 
-## Asset Types
+# Asset Types
 
-- Cash
-- Bank Account
-- Mobile Wallet
-- Gold
-- Investment
-- Cryptocurrency
-- Emergency Fund
+* Cash
+* Bank Account
+* Mobile Wallet
+* Gold
+* Investment
+* Cryptocurrency
+* Emergency Fund
+* Other Assets
 
 ---
 
-## Asset Information
+# Asset Information
 
 Each asset contains:
 
-- Name
-- Category
-- Current Balance
-- Currency
-- Institution
-- Status
-- Last Updated
+* ID
+* Asset Name
+* Category
+* Account
+* Current Balance / Value
+* Currency
+* Institution
+* Acquisition Date
+* Status
+* Last Updated
 
 ---
 
-## Planned Features
+# Asset Operations
 
-- Net Worth Calculation
-- Asset Growth Tracking
-- Historical Balance
-- Monthly Snapshot
-- Multi-currency Support
+* Add Asset
+* Update Asset Value
+* Transfer Between Accounts
+* Archive Asset
+* Restore Asset
 
 ---
 
-Version: 1.0
-Status: Draft
+# Planned Features
+
+* Net Worth Calculation
+* Asset Growth Tracking
+* Historical Balance
+* Monthly Snapshot
+* Multi-currency Support
+* Asset Performance Report
+
+---
+
+Version: 2.0
+
+Status: Official
