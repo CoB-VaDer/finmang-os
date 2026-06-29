@@ -2,36 +2,54 @@
 
 ## Purpose
 
-This document defines how historical financial data is archived and preserved.
+This document defines how historical financial data is archived, protected, and restored within FinMang OS.
 
 ---
 
-## Archive Rules
+# Archive Rules
 
-- Daily logs are immutable after closing.
-- Monthly records are archived automatically.
-- Archived data cannot be modified directly.
-- Historical reports remain searchable.
+* Daily logs become read-only after closing.
+* Monthly records are archived automatically.
+* Archived records cannot be edited directly.
+* All historical reports remain searchable.
+* Every archive action must be logged.
 
 ---
 
-## Archive Structure
+# Archive Structure
 
 Year
- ├── Month
- │    ├── Daily Logs
- │    ├── Reports
- │    └── Snapshots
+
+├── Month
+
+│ ├── Daily Logs
+
+│ ├── Transactions
+
+│ ├── Reports
+
+│ ├── Budget Snapshots
+
+│ └── Asset Snapshots
 
 ---
 
-## Retention Policy
+# Retention Policy
 
-- Keep all financial history permanently.
-- Never delete completed financial records.
-- Allow export for backup purposes.
+* Keep all financial history permanently.
+* Never delete completed financial records.
+* Support backup and restore.
+* Support data export.
 
 ---
 
-Version: 1.0
-Status: Draft
+# Recovery Policy
+
+* Restore archived records without modifying original history.
+* Every restore operation must be logged.
+
+---
+
+Version: 2.0
+
+Status: Official
