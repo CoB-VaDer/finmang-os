@@ -90,3 +90,15 @@ Before any work is considered complete:
 - Changes are tested.
 - Git history is clean with meaningful commit messages.
 - The Definition of Done is satisfied.
+---
+
+# Decision Management
+
+Major architectural and engineering decisions must be recorded before implementation.
+
+Rules:
+
+- Every significant decision requires an Architecture Decision Record (ADR).
+- Each ADR must include the context, decision, rationale, and consequences.
+- ADR files are stored in `docs/ADR/`.
+- Existing ADRs must not be rewritten. If a decision changes, create a new ADR that supersedes the previous one.
