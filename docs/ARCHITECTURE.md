@@ -152,3 +152,32 @@ Principles:
 - Preserve historical records.
 - Use foreign keys to maintain integrity.
 - Soft delete financial records instead of permanent deletion where appropriate.
+---
+
+# API Architecture
+
+Style: REST API
+
+Base Path:
+
+/api/v1
+
+Core Endpoints:
+
+- /accounts
+- /transactions
+- /budgets
+- /assets
+- /debts
+- /categories
+- /reports
+- /analytics
+- /automation
+
+Principles:
+
+- Stateless requests
+- JSON request and response bodies
+- Consistent error responses
+- API versioning from the beginning
+- Authentication required for protected endpoints
