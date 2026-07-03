@@ -221,3 +221,34 @@ finmang-os/
 ```
 
 Each top-level directory has a single, well-defined responsibility.
+
+---
+
+# Security Architecture
+
+Principles:
+
+- Authentication required for protected resources.
+- Authorization based on user roles and permissions.
+- Passwords stored using secure hashing.
+- HTTPS for all production traffic.
+- Input validation on every API endpoint.
+- Audit logging for sensitive financial operations.
+
+---
+
+# Deployment Architecture
+
+Environment:
+
+- Development
+- Staging
+- Production
+
+Deployment Principles:
+
+- Automated deployments
+- Environment-based configuration
+- Database migrations managed through Prisma
+- Backup strategy for production data
+- Monitoring and logging enabled
