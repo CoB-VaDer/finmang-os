@@ -200,3 +200,24 @@ Principles:
 - Responsive design
 - Accessibility by default
 - API communication through a dedicated service layer
+---
+
+# Project Structure
+
+```
+finmang-os/
+├── docs/
+├── database/
+├── automation/
+├── assets/
+├── archive/
+├── backend/
+├── frontend/
+├── scripts/
+├── tests/
+├── .github/
+├── README.md
+└── .gitignore
+```
+
+Each top-level directory has a single, well-defined responsibility.
