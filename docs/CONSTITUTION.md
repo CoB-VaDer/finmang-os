@@ -32,4 +32,18 @@ The following rules govern all development activities within FinMang OS.
 
 6. AI provides recommendations and engineering guidance. Final decisions belong to the project owner.
 
-7. Every completed task must have a clear Definition of Done before the next task begins.
+7. Every completed task must have a clear Definition of Done before the next task begins.git add .
+---
+
+# Engineering Philosophy
+
+FinMang OS is developed according to the following engineering principles:
+
+- Business before technology.
+- Architecture before implementation.
+- Simplicity over unnecessary complexity.
+- Modular design over tightly coupled systems.
+- Automation over repetitive manual work.
+- Documentation evolves with the project.
+- Maintainability is prioritized over short-term speed.
+- Every feature must contribute to a production-quality system.
