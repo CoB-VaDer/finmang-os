@@ -47,3 +47,19 @@ FinMang OS is developed according to the following engineering principles:
 - Documentation evolves with the project.
 - Maintainability is prioritized over short-term speed.
 - Every feature must contribute to a production-quality system.
+---
+
+# Documentation Standards
+
+Every project document has a single responsibility.
+
+- CONSTITUTION.md governs the project.
+- PROJECT_CHARTER.md defines project purpose and scope.
+- VISION.md defines the long-term direction.
+- MISSION.md defines the ongoing purpose.
+- BUSINESS_LOGIC.md defines business rules.
+- ARCHITECTURE.md defines the technical design.
+- ROADMAP.md defines project execution.
+- STATE.md records the current project status.
+
+Information should exist in one authoritative document only. Duplicate documentation should be avoided.
