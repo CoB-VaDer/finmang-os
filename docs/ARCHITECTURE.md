@@ -69,3 +69,44 @@ It describes how the system is organized, how components interact, and the archi
 - Frontend Architecture
 - Deployment Architecture
 - Security Architecture
+---
+
+# Module Responsibilities
+
+## Financial Engine
+- Manage accounts
+- Record transactions
+- Calculate balances
+
+## Budget Engine
+- Create budgets
+- Track budget usage
+- Detect overspending
+
+## Daily Log
+- Record daily financial activities
+- Generate daily summaries
+
+## Asset Management
+- Manage assets
+- Calculate net worth
+
+## Debt Management
+- Track debts
+- Manage repayments
+
+## Automation Engine
+- Execute scheduled tasks
+- Generate recurring records
+
+## Reporting
+- Produce financial reports
+- Export report data
+
+## Analytics
+- Generate financial insights
+- Analyze spending patterns
+
+## Archive
+- Preserve historical records
+- Support data recovery
