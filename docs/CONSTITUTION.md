@@ -63,3 +63,17 @@ Every project document has a single responsibility.
 - STATE.md records the current project status.
 
 Information should exist in one authoritative document only. Duplicate documentation should be avoided.
+---
+
+# Development Workflow
+
+Every feature follows this workflow:
+
+1. Define the business requirement.
+2. Update or create the business rules.
+3. Design the architecture.
+4. Implement the code.
+5. Test the implementation.
+6. Review the changes.
+7. Update the documentation.
+8. Commit and push the changes.
