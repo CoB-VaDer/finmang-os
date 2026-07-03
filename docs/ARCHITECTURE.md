@@ -252,3 +252,86 @@ Deployment Principles:
 - Database migrations managed through Prisma
 - Backup strategy for production data
 - Monitoring and logging enabled
+
+---
+
+# System Context
+
+The overall system architecture follows this flow:
+
+```
+User
+    ↓
+Frontend (React)
+    ↓
+REST API
+    ↓
+Application Layer
+    ↓
+Domain Layer
+    ↓
+Infrastructure Layer
+    ↓
+PostgreSQL Database
+```
+
+Each layer has a single responsibility and communicates only with adjacent layers to maintain loose coupling and high cohesion.
+
+---
+
+---
+
+# Module Ownership
+
+Each business domain has a single owning module.
+
+| Domain | Owner Module |
+|----------|--------------|
+| Accounts | Financial Engine |
+| Transactions | Financial Engine |
+| Budgets | Budget Engine |
+| Assets | Asset Management |
+| Debts | Debt Management |
+| Daily Records | Daily Log |
+| Automation Jobs | Automation Engine |
+| Reports | Reporting |
+| Analytics Data | Analytics |
+| Archived Data | Archive |
+
+Only the owning module is responsible for creating, updating, and deleting its domain data. Other modules must interact through the Application Layer rather than accessing another module's data directly.
+
+---
+---
+
+# Module Dependency Rules
+
+To maintain a clean architecture, modules must follow these rules:
+
+- Modules communicate through the Application Layer.
+- Modules do not access another module's database tables directly.
+- Business logic belongs only in the owning module.
+- Reporting and Analytics are read-only consumers of business data.
+- The Automation Engine orchestrates workflows but does not own business data.
+- Shared functionality belongs in common services, not business modules.
+
+These rules ensure loose coupling, maintainability, and scalability.
+
+---
+---
+
+# Cross-Cutting Concerns
+
+The following concerns apply across the entire system and are not owned by any single module:
+
+- Authentication
+- Authorization
+- Configuration Management
+- Logging
+- Error Handling
+- Input Validation
+- Audit Logging
+- Performance Monitoring
+
+These concerns are implemented as shared infrastructure and must remain independent of business modules.
+
+---
