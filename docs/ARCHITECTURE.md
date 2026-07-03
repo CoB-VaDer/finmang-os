@@ -181,3 +181,22 @@ Principles:
 - Consistent error responses
 - API versioning from the beginning
 - Authentication required for protected endpoints
+---
+
+# Frontend Architecture
+
+Framework: React
+
+Language: TypeScript
+
+Build Tool: Vite
+
+Principles:
+
+- Component-based architecture
+- Feature-first organization
+- Reusable UI components
+- Client-side routing
+- Responsive design
+- Accessibility by default
+- API communication through a dedicated service layer
