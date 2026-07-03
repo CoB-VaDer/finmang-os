@@ -102,3 +102,16 @@ Rules:
 - Each ADR must include the context, decision, rationale, and consequences.
 - ADR files are stored in `docs/ADR/`.
 - Existing ADRs must not be rewritten. If a decision changes, create a new ADR that supersedes the previous one.
+---
+
+# Roadmap Governance
+
+The project roadmap is the official execution plan.
+
+Rules:
+
+- Development follows approved phases.
+- Dependencies must not be skipped.
+- Each sprint has defined objectives and deliverables.
+- A phase is complete only after its Definition of Done is met.
+- Changes to the roadmap must be reviewed before adoption.
