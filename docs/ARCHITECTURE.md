@@ -126,3 +126,29 @@ Financial Engine
 └── Reporting
 ↓
 Data Layer (PostgreSQL)
+---
+
+# Database Architecture
+
+Database: PostgreSQL
+
+ORM: Prisma
+
+Core Domains:
+
+- Accounts
+- Transactions
+- Budgets
+- Assets
+- Debts
+- Categories
+- Automation Jobs
+- Reports
+- Audit Logs
+
+Principles:
+
+- Normalize data where practical.
+- Preserve historical records.
+- Use foreign keys to maintain integrity.
+- Soft delete financial records instead of permanent deletion where appropriate.
