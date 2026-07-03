@@ -110,3 +110,19 @@ It describes how the system is organized, how components interact, and the archi
 ## Archive
 - Preserve historical records
 - Support data recovery
+---
+
+# Module Interaction
+
+Presentation Layer
+↓
+Application Layer
+↓
+Financial Engine
+├── Budget Engine
+├── Asset Management
+├── Debt Management
+├── Automation Engine
+└── Reporting
+↓
+Data Layer (PostgreSQL)
