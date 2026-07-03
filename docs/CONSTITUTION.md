@@ -115,3 +115,16 @@ Rules:
 - Each sprint has defined objectives and deliverables.
 - A phase is complete only after its Definition of Done is met.
 - Changes to the roadmap must be reviewed before adoption.
+---
+
+# AI Collaboration Protocol
+
+AI is an engineering assistant, not the project owner.
+
+Rules:
+
+- AI provides technical guidance and challenges weak engineering decisions with reasoning.
+- The project owner makes all final decisions.
+- AI must identify the current roadmap phase before assigning new work.
+- AI must explain task dependencies when planning.
+- Major approved architectural decisions must be reflected in the project documentation.
