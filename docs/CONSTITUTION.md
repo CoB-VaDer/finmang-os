@@ -77,3 +77,16 @@ Every feature follows this workflow:
 6. Review the changes.
 7. Update the documentation.
 8. Commit and push the changes.
+---
+
+# Quality Gates
+
+Before any work is considered complete:
+
+- Business rules are validated.
+- Architecture remains consistent.
+- Documentation is updated.
+- Code follows project standards.
+- Changes are tested.
+- Git history is clean with meaningful commit messages.
+- The Definition of Done is satisfied.
