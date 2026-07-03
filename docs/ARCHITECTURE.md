@@ -1,37 +1,71 @@
 # FinMang OS Architecture
 
-## Purpose
-
-This document defines the overall architecture of FinMang OS.
-
-FinMang OS is designed as a Personal Financial Operating System based on the Amanah philosophy.
-
-The system is divided into multiple independent modules that work together while remaining loosely coupled.
+Version: 1.0
+Status: Draft
 
 ---
 
-## Core Modules
+# Purpose
 
-1. Mission Layer
-2. Financial Engine
-3. Budget Engine
-4. Daily Log
-5. Automation Engine
-6. Archive System
-7. Analytics
-8. Reporting
+This document defines the technical architecture of FinMang OS.
+
+It describes how the system is organized, how components interact, and the architectural principles that guide implementation.
 
 ---
 
-## Documentation Rule
+# Architecture Principles
 
-- docs/ contains every official document.
-- automation/ contains automation workflows.
-- database/ contains schemas and database design.
-- assets/ contains icons, images and branding.
-- archive/ stores historical versions.
+- Modular design
+- Loose coupling
+- High cohesion
+- Domain-driven development
+- Maintainability first
+- Security by design
+- Testability
+- Scalability
 
 ---
 
-Status:
-Draft v0.1
+# System Layers
+
+1. Presentation Layer
+2. Application Layer
+3. Domain Layer
+4. Infrastructure Layer
+5. Data Layer
+
+---
+
+# Core Modules
+
+- Financial Engine
+- Budget Engine
+- Daily Log
+- Asset Management
+- Debt Management
+- Automation Engine
+- Reporting
+- Analytics
+- Archive
+
+---
+
+# Documentation Structure
+
+- docs/ — Official project documentation
+- database/ — Database design
+- automation/ — Automation workflows
+- assets/ — Images, icons and branding
+- archive/ — Historical records
+
+---
+
+# Future Sections
+
+- Technology Stack
+- Folder Structure
+- Database Architecture
+- API Architecture
+- Frontend Architecture
+- Deployment Architecture
+- Security Architecture
