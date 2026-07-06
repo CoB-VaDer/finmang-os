@@ -1,134 +1,58 @@
 # FinMang OS Business Logic
 
-## Purpose
-
-This document defines the business rules, workflows, and operational logic of FinMang OS.
+Version: 2.0
+Status: Official (MVP Locked)
 
 ---
 
-# Core Principle
+## Purpose
+
+This document defines business rules, validations, calculations, and Islamic finance principles for the MVP.
+
+---
+
+## Core Principle (Amanah)
 
 Every financial activity must be:
 
-* Intentional
-* Traceable
-* Accountable
-* Measurable
+- **Intentional** — No automatic/unapproved entries.
+- **Traceable** — Every change is logged.
+- **Accountable** — User is responsible for all entries.
+- **Measurable** — All calculations are transparent and reproducible.
+- **Halal** — Track only permissible income/expenses (no Riba/interest-based income).
 
 ---
 
-# Financial Flow
+## Validation Rules (MVP)
 
-Income
-↓
-Account Balance
-↓
-Budget Allocation
-↓
-Expense Recording
-↓
-Asset / Debt Update
-↓
-Reports
-↓
-Archive
+### Transaction Validations
+| Rule | Error |
+| :--- | :--- |
+| Amount must be > 0 | "Amount must be greater than zero." |
+| Transaction date cannot be future | "Date cannot be in the future." |
+| Category must exist | "Category not found." |
+| Category type must match transaction type (INCOME/EXPENSE) | "Category type does not match transaction type." |
+| Account must exist | "Account not found." |
+| Account must be active | "Account is inactive." |
 
----
+### Budget Validations
+| Rule | Error |
+| :--- | :--- |
+| Budget amount must be > 0 | "Budget amount must be greater than zero." |
+| Category must be EXPENSE type | "Budget cannot be assigned to INCOME category." |
+| Start date must be before end date | "Start date must be before end date." |
 
-# Transaction Rules
-
-## Income
-
-* Every income must belong to an account.
-* Every income increases account balance.
-* Every income is recorded permanently.
-
----
-
-## Expense
-
-* Every expense belongs to a category.
-* Every expense reduces account balance.
-* Every expense updates budget usage.
-* Expenses cannot exceed available balance without confirmation.
+### Asset/Debt Validations
+| Rule | Error |
+| :--- | :--- |
+| Purchase price must be > 0 | "Purchase price must be greater than zero." |
+| Current value must be >= 0 | "Current value cannot be negative." |
+| Principal must be > 0 | "Principal must be greater than zero." |
+| Interest rate must be >= 0 | "Interest rate cannot be negative." |
+| Due date must be in future | "Due date must be in the future." |
 
 ---
 
-## Transfer
+## Calculation Formulas
 
-* Transfer moves money between accounts.
-* Total balance must remain unchanged.
-* Both outgoing and incoming records are created.
-
----
-
-# Budget Rules
-
-* Every month has its own budget.
-* Budget starts with Planned Amount.
-* Every expense updates Actual Amount.
-* Remaining Amount is calculated automatically.
-* Overspending triggers a warning.
-
----
-
-# Asset Rules
-
-* Assets have current value.
-* Asset value can increase or decrease.
-* Net Worth is calculated automatically.
-
----
-
-# Debt Rules
-
-* Every debt has a due date.
-* Debt payments reduce outstanding balance.
-* Paid debts are archived but never deleted.
-
----
-
-# Automation Rules
-
-Daily
-
-* Prepare Daily Log
-* Reset daily counters
-
-Weekly
-
-* Generate weekly report
-
-Monthly
-
-* Close monthly records
-* Archive completed month
-* Prepare next month's budget
-
----
-
-# Reporting Rules
-
-Generate:
-
-* Daily Summary
-* Weekly Summary
-* Monthly Summary
-* Budget Report
-* Asset Report
-* Net Worth Report
-
----
-
-# General Rules
-
-* No financial record is permanently deleted.
-* Every modification is logged.
-* Historical records remain searchable.
-* All calculations must be reproducible.
-
----
-
-Version: 1.0
-
-Status: Official
+### Account Balance
