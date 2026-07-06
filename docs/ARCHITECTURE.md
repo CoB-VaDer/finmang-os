@@ -335,3 +335,139 @@ The following concerns apply across the entire system and are not owned by any s
 These concerns are implemented as shared infrastructure and must remain independent of business modules.
 
 ---
+# Domain Model (Business Objects)
+
+*This section defines the core business entities, their attributes, data types, and relationships. This is the single source of truth for what data the system manages for the MVP.*
+
+---
+
+## 1. Account
+Represents a financial account (bank, cash, e-wallet).
+
+| Attribute | Type | Description |
+| :--- | :--- | :--- |
+| `id` | UUID (PK) | Unique identifier |
+| `name` | String(100) | Display name (e.g., "Maybank Current") |
+| `type` | Enum | `CHECKING`, `SAVINGS`, `CREDIT`, `CASH`, `E_WALLET` |
+| `balance` | Decimal(15,2) | Current total balance |
+| `currency` | String(3) | ISO currency code (e.g., `MYR`, `USD`) |
+| `institution` | String(100) | Bank or provider name |
+| `is_active` | Boolean | Soft-delete flag (default: `true`) |
+| `created_at` | Timestamp | Creation timestamp |
+| `updated_at` | Timestamp | Last update timestamp |
+
+**Relationships:** An Account has many **Transactions**.
+
+---
+
+## 2. Category
+Categorizes transactions for reporting and budgeting.
+
+| Attribute | Type | Description |
+| :--- | :--- | :--- |
+| `id` | UUID (PK) | Unique identifier |
+| `name` | String(50) | e.g., "Groceries", "Salary" |
+| `type` | Enum | `INCOME` or `EXPENSE` |
+| `parent_id` | UUID (FK) | Nullable. Self-referencing for sub-categories (e.g., "Food" → "Groceries") |
+| `color` | String(7) | Hex color code for UI |
+| `is_system` | Boolean | True for default system categories (prevents deletion) |
+| `created_at` | Timestamp | Creation timestamp |
+
+**Relationships:** A Category has many **Transactions**. A Category may have many sub-Categories.
+
+---
+
+## 3. Transaction
+Records a single inflow or outflow of money.
+
+| Attribute | Type | Description |
+| :--- | :--- | :--- |
+| `id` | UUID (PK) | Unique identifier |
+| `account_id` | UUID (FK) | References **Account** |
+| `category_id` | UUID (FK) | References **Category** |
+| `amount` | Decimal(15,2) | Monetary value |
+| `type` | Enum | `INCOME`, `EXPENSE`, or `TRANSFER` |
+| `description` | String(255) | Optional user note |
+| `transaction_date` | Date | Date the transaction occurred |
+| `is_reconciled` | Boolean | Matches bank statement (default: `false`) |
+| `created_at` | Timestamp | Creation timestamp |
+| `updated_at` | Timestamp | Last update timestamp |
+
+**Relationships:** Belongs to an **Account** and a **Category**.
+
+---
+
+## 4. Budget
+Allocates a spending limit to a specific Category over a period.
+
+| Attribute | Type | Description |
+| :--- | :--- | :--- |
+| `id` | UUID (PK) | Unique identifier |
+| `category_id` | UUID (FK) | References **Category** (must be EXPENSE type) |
+| `amount` | Decimal(15,2) | Allocated budget limit |
+| `period` | Enum | `MONTHLY`, `YEARLY` |
+| `start_date` | Date | Start of the budget cycle |
+| `end_date` | Date | End of the budget cycle |
+| `created_at` | Timestamp | Creation timestamp |
+| `updated_at` | Timestamp | Last update timestamp |
+
+**Relationships:** Belongs to a **Category**.
+
+---
+
+## 5. Asset
+Represents items of value owned (Property, Vehicles, Investments).
+
+| Attribute | Type | Description |
+| :--- | :--- | :--- |
+| `id` | UUID (PK) | Unique identifier |
+| `name` | String(100) | e.g., "Toyota Camry" |
+| `type` | Enum | `PROPERTY`, `VEHICLE`, `INVESTMENT`, `VALUABLE` |
+| `purchase_price` | Decimal(15,2) | Original cost |
+| `current_value` | Decimal(15,2) | Estimated current market value |
+| `purchase_date` | Date | Date acquired |
+| `created_at` | Timestamp | Creation timestamp |
+| `updated_at` | Timestamp | Last update timestamp |
+
+---
+
+## 6. Debt (Liability)
+Represents money owed (Loans, Mortgages, Credit Card balances).
+
+| Attribute | Type | Description |
+| :--- | :--- | :--- |
+| `id` | UUID (PK) | Unique identifier |
+| `name` | String(100) | e.g., "Housing Loan" |
+| `type` | Enum | `LOAN`, `MORTGAGE`, `CREDIT_CARD`, `PERSONAL` |
+| `principal` | Decimal(15,2) | Original amount borrowed |
+| `remaining_balance` | Decimal(15,2) | Current outstanding amount |
+| `interest_rate` | Decimal(5,2) | Annual interest rate percentage |
+| `due_date` | Date | Next payment due date |
+| `created_at` | Timestamp | Creation timestamp |
+| `updated_at` | Timestamp | Last update timestamp |
+
+---
+
+## 7. Automation Job
+Defines a scheduled or event-driven task for n8n or internal cron.
+
+| Attribute | Type | Description |
+| :--- | :--- | :--- |
+| `id` | UUID (PK) | Unique identifier |
+| `name` | String(100) | e.g., "Monthly Salary Entry" |
+| `trigger_type` | Enum | `SCHEDULE`, `WEBHOOK` |
+| `schedule_cron` | String | Cron expression (if `trigger_type` is `SCHEDULE`) |
+| `action_type` | Enum | `CREATE_TRANSACTION`, `GENERATE_REPORT`, `SEND_ALERT` |
+| `config` | JSON | Payload/configuration for the action |
+| `is_active` | Boolean | Enable/disable the job |
+| `last_run` | Timestamp | Last execution timestamp |
+| `created_at` | Timestamp | Creation timestamp |
+| `updated_at` | Timestamp | Last update timestamp |
+
+---
+
+## Entity Relationship Summary (MVP)
+- **Account** (1) ─── (∞) **Transaction**
+- **Category** (1) ─── (∞) **Transaction**
+- **Category** (1) ─── (∞) **Budget** (optional for MVP)
+- **Transaction** does NOT directly link to Asset/Debt in MVP (reserved for Phase 2).
