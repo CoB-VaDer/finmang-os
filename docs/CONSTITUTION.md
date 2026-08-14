@@ -32,7 +32,7 @@ The following rules govern all development activities within FinMang OS.
 
 6. AI provides recommendations and engineering guidance. Final decisions belong to the project owner.
 
-7. Every completed task must have a clear Definition of Done before the next task begins.git add .
+7. Every completed task must have a clear Definition of Done before the next task begins.
 ---
 
 # Engineering Philosophy
