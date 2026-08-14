@@ -55,24 +55,13 @@ notion/
 Version 1.0
 
 Status:
-Foundation Phase
+See `docs/STATE.md` for current live project status and phase.
 
 ---
 
 ## Roadmap
 
-Phase 1
-- Documentation
-- Database Design
-- Notion Workspace
-
-Phase 2
-- Automation
-- Dashboard
-- Reports
-
-Phase 3
-- AI Financial Assistant
+The authoritative, up-to-date roadmap lives in `docs/ROADMAP.md`. This README intentionally does not duplicate it, to avoid the roadmaps drifting out of sync (see Documentation Audit, August 2026, Finding 2).
 
 ---
 

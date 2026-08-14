@@ -21,9 +21,9 @@ Status: Official (Locked)
 - Categories
 - Transactions
 
-### Technology (Planned)
-- Backend: Python (FastAPI) or Node.js (TBD)
-- Database: PostgreSQL
+### Technology (Decided — see ADR-002)
+- Backend: Python (FastAPI)
+- Database: PostgreSQL (via SQLAlchemy + Alembic)
 - Frontend: CLI only (no UI for MVP)
 
 ---

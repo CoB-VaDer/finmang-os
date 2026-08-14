@@ -1,8 +1,8 @@
 # FinMang OS — Project State
 
-Version: 2.0
+Version: 2.1
 Status: Active
-Last Updated: 2026-07-03
+Last Updated: 2026-08-14
 
 ---
 
@@ -18,7 +18,7 @@ A Personal Financial Operating System built on Amanah principles, designed to pr
 
 # Current Phase
 
-Phase 4 — Backend Foundation
+Phase 5 — Project Management (per docs/ROADMAP.md numbering)
 
 Status: ACTIVE
 

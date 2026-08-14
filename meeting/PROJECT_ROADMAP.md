@@ -1,4 +1,7 @@
-# FinMang OS Project Roadmap
+> **SUPERSEDED — HISTORICAL DOCUMENT ONLY.**
+> This early-planning roadmap has been superseded by `docs/ROADMAP.md`, which is the single authoritative execution roadmap (per Documentation Audit, August 2026). This file is retained for historical context only and should not be used to determine current project phase or status. See `docs/STATE.md` for live status.
+
+# FinMang OS Project Roadmap (Historical — Superseded)
 
 ## Purpose
 
@@ -142,4 +145,4 @@ Future
 
 Version: 1.0
 
-Status: Official
+Status: Historical — Superseded
