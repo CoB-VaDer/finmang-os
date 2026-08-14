@@ -2,7 +2,7 @@
 
 ## Status
 
-Proposed
+Superseded (backend/database-tooling decisions only — see ADR-002). Frontend, authentication, and version-control decisions below remain in effect.
 
 ## Decision
 
