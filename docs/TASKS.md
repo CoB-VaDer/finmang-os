@@ -44,7 +44,7 @@ Status: Official
 
 ### Task 1: Database Setup (PENDING)
 - Install PostgreSQL
-- Run Prisma migrations
+- Run Alembic migrations (see ADR-002)
 - Create tables
 
 ### Task 2: Backend API (PENDING)
