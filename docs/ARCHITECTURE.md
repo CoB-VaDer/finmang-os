@@ -132,7 +132,7 @@ Data Layer (PostgreSQL)
 
 Database: PostgreSQL
 
-ORM: Prisma
+ORM: SQLAlchemy (see ADR-002)
 
 Core Domains:
 
@@ -249,7 +249,7 @@ Deployment Principles:
 
 - Automated deployments
 - Environment-based configuration
-- Database migrations managed through Prisma
+- Database migrations managed through Alembic (see ADR-002)
 - Backup strategy for production data
 - Monitoring and logging enabled
 
