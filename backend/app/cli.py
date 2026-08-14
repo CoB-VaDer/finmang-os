@@ -2,7 +2,11 @@ import argparse
 from datetime import date
 from decimal import Decimal
 
+from sqlalchemy import select
+
 from app.db.session import SessionLocal
+from app.models.account import Account
+from app.models.category import Category
 from app.services.account_service import create_account, list_accounts
 from app.services.balance_service import account_balance, total_balance
 from app.services.category_service import create_category, list_categories
@@ -23,23 +27,37 @@ def build_parser():
     return p
 
 
+def _find_account(db, value):
+    return db.scalar(select(Account).where((Account.id == int(value)) if value.isdigit() else (Account.name == value)))
+
+
+def _find_category(db, value):
+    return db.scalar(select(Category).where((Category.id == int(value)) if value.isdigit() else (Category.name == value)))
+
+
 def run(db, argv):
     args = build_parser().parse_args(argv)
     if args.command == "account-add":
         obj = create_account(db, args.name, args.account_type); print(obj.id); return
     if args.command == "accounts":
-        for obj in list_accounts(db): print(obj.id, obj.name, obj.account_type, obj.is_active); return
+        for obj in list_accounts(db): print(obj.id, obj.name, obj.account_type, obj.is_active)
+        return
     if args.command == "category-add":
         obj = create_category(db, args.name, args.category_type); print(obj.id); return
     if args.command == "categories":
-        for obj in list_categories(db): print(obj.id, obj.name, obj.category_type); return
+        for obj in list_categories(db): print(obj.id, obj.name, obj.category_type)
+        return
     if args.command.startswith("add-"):
         kind = args.command[4:]
-        obj = create_transaction(db, int(args.account_id), int(args.category_id), kind, Decimal(args.amount), date.fromisoformat(args.date)); print(obj.id); return
+        account = _find_account(db, args.account_id)
+        category = _find_category(db, args.category_id)
+        if not account: raise ValueError(f"Account not found: {args.account_id}")
+        if not category: raise ValueError(f"Category not found: {args.category_id}")
+        obj = create_transaction(db, account.id, category.id, kind, Decimal(args.amount), date.fromisoformat(args.date)); print(obj.id); return
     if args.command == "balance":
-        value = account_balance(db, int(args.account_id)) if args.account_id else total_balance(db); print(f"{value:.2f}"); return
+        value = account_balance(db, _find_account(db, args.account_id).id) if args.account_id else total_balance(db); print(f"{value:.2f}"); return
     if args.command == "transactions":
-        for obj in list_transactions(db, account_id=args.account_id, limit=args.limit): print(obj.id, obj.transaction_type, obj.amount, obj.transaction_date); return
+        for obj in list_transactions(db, account_id=args.account_id, limit=args.limit): print(obj.id, obj.transaction_type, obj.amount, obj.transaction_date)
 
 
 def main():
