@@ -21,10 +21,14 @@ Status: Official (Locked)
 - Categories
 - Transactions
 
-### Technology (Planned)
-- Backend: Python (FastAPI) or Node.js (TBD)
+### Technology
+- Backend: Python (FastAPI)
+- ORM/database toolkit: SQLAlchemy 2.x
+- Database migrations: Alembic
 - Database: PostgreSQL
 - Frontend: CLI only (no UI for MVP)
+
+The backend stack revision is recorded in `docs/ADR/ADR-002-Backend-Stack-Revision.md`.
 
 ---
 
@@ -53,7 +57,8 @@ Status: Official (Locked)
 
 ## MVP Timeline
 - Documentation Phase: COMPLETE
-- Implementation: Start after MVP.md approval
+- Implementation: COMPLETE
+- Live staging validation: PENDING
 
 ---
 
